@@ -183,7 +183,7 @@ function getLongReviews(objectArr) {
   }
   return outputArr;
 }
-console.log(getLongReviews(reviews));
+// console.log(getLongReviews(reviews));
 
 /* STRETCH 3:  This challenge is not related to the data above! 
 
@@ -202,6 +202,16 @@ The returned object should have the following characteristics:
          (2) returns the updated value of the `odometer`.
 */
 
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(miles) {
+  return {
+    odometer: miles,
+    drive: function (distance) {
+      this.odometer += distance;
+      return this.odometer;
+    },
+  };
 }
+
+let testCar = carMaker(50000);
+console.log(testCar);
+console.log(testCar.drive(200));
